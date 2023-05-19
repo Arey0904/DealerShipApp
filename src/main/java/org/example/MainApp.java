@@ -7,7 +7,5 @@ public class MainApp {
     public static void main(String[] args) throws IOException {
         UserInterface ui = new UserInterface();
         ui.displayMenu();
-        System.out.printf("elmo");
-
     }
 }
