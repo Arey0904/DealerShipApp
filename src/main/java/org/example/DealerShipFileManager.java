@@ -51,7 +51,7 @@ public class DealerShipFileManager {
     }
 
 
-    public void saveDealership(Dealership anotherDealership) {
+    public static void saveDealership(Dealership anotherDealership) {
         try {
             FileWriter fileWriter = new FileWriter("DealershipVehicleList");
             for (Vehicle v : anotherDealership.getAllVehicles()) {

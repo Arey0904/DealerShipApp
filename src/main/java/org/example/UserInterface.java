@@ -65,24 +65,12 @@ public class UserInterface {
         System.out.println("Please select a valid option");
     }
 
-    public static void processGetAllVehiclesRequest() {
-        //Declaring the allEntries() method
-        System.out.println("All Entries:");
-        for (Vehicle vehicle : dealership.getAllVehicles()) {
-            //loop through each transaction object(item) in the transactionsList
-            //array list and print out private variables using the getter methods
-            System.out.println(
-                    vehicle.getYear() + "  " +
-                            vehicle.getVehicleType() + " " +
-                            vehicle.getColor() + " " +
-                            vehicle.getMake() + " " +
-                            vehicle.getModel() + " " +
-                            vehicle.getPrice() + " " +
-                            vehicle.getOdometer()
-            );
-        }
-
+    public void processGetAllVehiclesRequest() {
+        List<Vehicle> list = dealership.getAllVehicles();
+        displayVehicles(list);
     }
+
+
 
     public void processGetByYearRequest() {
         System.out.println("Enter minimum Year: ");
@@ -113,10 +101,11 @@ public class UserInterface {
     }
 
     public void processGetByVehicleTypeRequest() {
-        System.out.println("Enter Your Vehicle Type: ");
-        String vehicleType = scanner.nextLine();
+        String vehicleType = "";
+        vehicleType = requestStringInput("Enter vehicle type: ", vehicleType);
         System.out.println("\n -----------------SELECTION BY VEHICLE TYPE------------------");
-        displayVehicles(dealership.getVehiclesByType(vehicleType));
+       List<Vehicle> list = dealership.getVehiclesByType(vehicleType);
+       displayVehicles(list);
     }
 
     public void processGetByColorRequest() {
@@ -131,10 +120,10 @@ public class UserInterface {
     public void processGetByMileageRequest() {
         System.out.println("Enter minimum mileage");
         String input = scanner.nextLine();
-        int min = Integer.parseInt(input);
+        int min = 0;
         System.out.println("Enter maximum mileage: ");
         input = scanner.nextLine();
-        int max = Integer.parseInt(input);
+        int max = Integer.MAX_VALUE;
         System.out.println("\n -----------------SELECTION BY MILEAGE------------------");
         displayVehicles(dealership.getVehiclesByMileage(min, max));
     }
@@ -182,14 +171,13 @@ public class UserInterface {
     }
 
     public void processRemoveVehicleRequest() {
-        Vehicle v = null;
         System.out.println("Enter vin of Vehicle you like to remove: ");
-        int vin = Integer.parseInt(scanner.nextLine());
-        for (Vehicle i : dealership.getAllVehicles()) {
-            if (i.getVin() == vin) {
+        int vin = requestIntegerInput("VIN: ", 0);
+      Vehicle v = dealership.getVehicleByVin(vin); {
+            if (v != null) {
+                dealership.removeVehicle(v);
+                DealerShipFileManager.saveDealership(dealership);
                 System.out.println("Vehicle has been removed");
-                v = i;
-                break;
             }
         }
         dealership.removeVehicle(v);
@@ -215,6 +203,16 @@ public class UserInterface {
         } catch (NumberFormatException ignored) {
         }
 
+        return value;
+    }
+    private int requestIntegerInput(String prompt, int defaultValue){
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+
+        int value = defaultValue;
+        try {
+            value = Integer.parseInt(input);
+        } catch (NumberFormatException ignored){}
         return value;
     }
 }

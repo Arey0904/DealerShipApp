@@ -64,4 +64,8 @@ public class Dealership {
     public Object getVehiclesByYear(int minYear, int maxYear) {
         return null;
     }
+
+    public Vehicle getVehicleByVin(int vin) {
+        return null;
+    }
 }
