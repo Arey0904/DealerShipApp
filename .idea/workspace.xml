@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e409b1d1-1d24-410a-9471-f987da7a73bd" name="Changes" comment="Still Working">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ContractFileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DealerShipFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DealerShipFileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dealership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dealership.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LeaseContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LeaseContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SalesContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SalesContract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684527926047</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Still Working">
+      <created>1684688287731</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684688287731</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

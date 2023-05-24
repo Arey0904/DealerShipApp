@@ -1,43 +1,54 @@
 package org.example;
 
-public class Contract {
-    private String dateContract;
-    private String customerName;
-    private String email;
-    private int vehicleSold;
-    private double totalPrice;
-    private double monthlyPayment;
 
-    public String getDateContract() {
-        return dateContract;
+public abstract class Contract {
+private String contractDate;
+    private String customerName;
+    private String customerEmail;
+    private Vehicle vehicleSold;
+
+    public Contract(String contractDate, String customerName, String customerEmail, Vehicle vehicleSold) {
+        this.contractDate = contractDate;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.vehicleSold = vehicleSold;
+    }
+
+    public String getContractDate() {
+        return contractDate;
+    }
+
+    public void setContractDate(String contractDate) {
+        this.contractDate = contractDate;
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public String getEmail() {
-        return email;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public int getVehicleSold() {
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+    public Vehicle getVehicleSold() {
         return vehicleSold;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public double getMonthlyPayment() {
-        return monthlyPayment;
-    }
-
-    public Contract(String dateContract, String customerName, String email, int vehicleSold, double totalPrice, double monthlyPayment) {
-        this.dateContract = dateContract;
-        this.customerName = customerName;
-        this.email = email;
+    public void setVehicleSold(Vehicle vehicleSold) {
         this.vehicleSold = vehicleSold;
-        this.totalPrice = totalPrice;
-        this.monthlyPayment = monthlyPayment;
     }
+
+    public abstract double getTotalPrice();
+
+    public abstract double getMonthlyPayment();
+
+    public abstract String getPersistenceString();
 }

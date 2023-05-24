@@ -71,7 +71,6 @@ public class UserInterface {
     }
 
 
-
     public void processGetByYearRequest() {
         System.out.println("Enter minimum Year: ");
         int minYear = scanner.nextInt();
@@ -104,14 +103,14 @@ public class UserInterface {
         String vehicleType = "";
         vehicleType = requestStringInput("Enter vehicle type: ", vehicleType);
         System.out.println("\n -----------------SELECTION BY VEHICLE TYPE------------------");
-       List<Vehicle> list = dealership.getVehiclesByType(vehicleType);
-       displayVehicles(list);
+        List<Vehicle> list = dealership.getVehiclesByType(vehicleType);
+        displayVehicles(list);
     }
 
     public void processGetByColorRequest() {
         String color = "black";
 
-         color = requestStringInput("Enter color:", color);
+        color = requestStringInput("Enter color:", color);
         System.out.println("\n -----------------SELECTION BY COLOR------------------");
         List<Vehicle> list = dealership.getVehiclesByColor(color);
         displayVehicles(list);
@@ -173,7 +172,8 @@ public class UserInterface {
     public void processRemoveVehicleRequest() {
         System.out.println("Enter vin of Vehicle you like to remove: ");
         int vin = requestIntegerInput("VIN: ", 0);
-      Vehicle v = dealership.getVehicleByVin(vin); {
+        Vehicle v = dealership.getVehicleByVin(vin);
+        {
             if (v != null) {
                 dealership.removeVehicle(v);
                 DealerShipFileManager.saveDealership(dealership);
@@ -186,9 +186,9 @@ public class UserInterface {
         dealerShipFileManager.saveDealership(dealership);
     }
 
-    private String requestStringInput(String prompt, String defaultValue){
+    private String requestStringInput(String prompt, String defaultValue) {
         System.out.print(prompt);
-        String input =  scanner.nextLine();
+        String input = scanner.nextLine();
         String value = input.equals("") ? defaultValue : input;
         return value;
     }
@@ -205,14 +205,16 @@ public class UserInterface {
 
         return value;
     }
-    private int requestIntegerInput(String prompt, int defaultValue){
+
+    private int requestIntegerInput(String prompt, int defaultValue) {
         System.out.print(prompt);
         String input = scanner.nextLine();
 
         int value = defaultValue;
         try {
             value = Integer.parseInt(input);
-        } catch (NumberFormatException ignored){}
+        } catch (NumberFormatException ignored) {
+        }
         return value;
     }
 }
